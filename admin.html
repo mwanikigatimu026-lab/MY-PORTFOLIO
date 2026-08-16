@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mwaniki | Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#08020a;color:white;min-height:100vh;display:grid;place-items:center;padding:20px}body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 30% 20%,#ff146633,transparent 35%),radial-gradient(circle at 80% 80%,#ff004433,transparent 35%),#08020a}.panel{width:min(520px,100%);padding:32px;border:1px solid #ff3d86;border-radius:20px;background:#14030eee;box-shadow:0 0 45px #ff146644}h1{color:#ff4c91}p{color:#b9adb4;line-height:1.6}label{display:block;margin:16px 0 7px}input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #542039;background:#090208;color:#fff}textarea{min-height:130px;resize:vertical}button,a{display:block;width:100%;padding:12px;margin-top:16px;border-radius:9px;border:1px solid #ff3d86;background:linear-gradient(135deg,#ff1f68,#ff4f9b);color:#fff;font-weight:bold;text-align:center;text-decoration:none;cursor:pointer}.secondary{background:#260916}.hidden{display:none}.msg{margin-top:15px;min-height:22px}
+</style></head><body><div class="panel"><h1>🎮 Profile Admin</h1><p>Log in to edit the profile shown on your public website.</p>
+<div id="login"><label>Email</label><input id="email" type="email"><label>Password</label><input id="password" type="password"><button onclick="login()">Log In</button><p id="loginMsg" class="msg"></p></div>
+<div id="editor" class="hidden"><label>Name</label><input id="profileName"><label>Bio</label><textarea id="profileBio"></textarea><button onclick="save()">Save Public Profile</button><button class="secondary" onclick="logout()">Log Out</button><a class="secondary" href="index.html">← Back to Portfolio</a><p id="saveMsg" class="msg"></p></div></div>
+<script>
+const SUPABASE_URL="PASTE_YOUR_SUPABASE_URL_HERE",SUPABASE_KEY="PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+async function login(){let{error}=await db.auth.signInWithPassword({email:email.value,password:password.value});loginMsg.textContent=error?error.message:"Logged in!";if(!error)showEditor()}
+async function showEditor(){let{data:{user}}=await db.auth.getUser();if(!user)return;login.classList.add("hidden");editor.classList.remove("hidden");let{data}=await db.from("profiles").select("name,bio").eq("id",user.id).maybeSingle();profileName.value=data?.name||"Mwaniki Gatimu";profileBio.value=data?.bio||"I'm a game developer who enjoys creating games and learning Python."}
+async function save(){let{data:{user}}=await db.auth.getUser();let{error}=await db.from("profiles").upsert({id:user.id,name:profileName.value.trim(),bio:profileBio.value.trim()});saveMsg.textContent=error?error.message:"Saved! Your public profile is updated."}
+async function logout(){await db.auth.signOut();location.reload()}db.auth.getSession().then(({data})=>{if(data.session)showEditor()});
+</script></body></html>

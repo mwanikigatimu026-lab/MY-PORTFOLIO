@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mwaniki Gatimu | Game Developer</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:#08020a;color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 15% 20%,#ff146633,transparent 30%),radial-gradient(circle at 85% 35%,#ff004433,transparent 32%),#08020a}
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none}.particle{position:absolute;border-radius:50%;background:#ff2f7d;box-shadow:0 0 10px #ff2f7d;animation:float linear infinite}
+@keyframes float{from{transform:translateY(110vh);opacity:0}15%{opacity:.9}85%{opacity:.9}to{transform:translateY(-10vh);opacity:0}}
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#0a020ccc;backdrop-filter:blur(12px);border-bottom:1px solid #ff2f7d33}
+.logo{font-size:23px;font-weight:800;color:#ff3d86}.links{display:flex;gap:25px;list-style:none}.links a{color:#ddd;text-decoration:none}.links a:hover{color:#ff4c91}
+.btn{display:inline-block;padding:12px 20px;border:1px solid #ff3d86;border-radius:9px;background:linear-gradient(135deg,#ff1f68,#ff4f9b);color:#fff;text-decoration:none;font-weight:bold;cursor:pointer;transition:.25s;box-shadow:0 0 18px #ff1f684d}.btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 0 30px #ff1f68aa}
+.hero{min-height:86vh;display:grid;place-items:center;text-align:center;padding:60px 7%}.hero>div{max-width:850px}.badge{display:inline-block;padding:8px 15px;border:1px solid #ff3d86;border-radius:30px;color:#ff70a8}.avatar{width:130px;height:130px;margin:25px auto;border-radius:50%;display:grid;place-items:center;font-size:55px;background:#300519;border:3px solid #ff3d86;box-shadow:0 0 30px #ff176b;animation:pulse 2.5s infinite}
+@keyframes pulse{50%{box-shadow:0 0 55px #ff176b}}h1{font-size:clamp(42px,7vw,76px);margin:10px 0}h1 span{color:#ff3d86}.subtitle{font-size:22px;color:#ffb1ca;margin:18px}.hero p{max-width:700px;margin:0 auto 28px;color:#cfc5cb;line-height:1.8}.actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+section{padding:80px 7%;max-width:1250px;margin:auto}.title{font-size:35px;color:#ff4c91}.muted{color:#a99da4}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:30px}.card{padding:25px;border:1px solid #ff3d8640;border-radius:16px;background:linear-gradient(145deg,#2d0719bf,#11030ce6);transition:.3s}.card:hover{transform:translateY(-9px);border-color:#ff3d86;box-shadow:0 0 25px #ff146633}.card p{color:#afa4aa;line-height:1.6}.icon{font-size:32px}.status{display:inline-block;margin-top:14px;padding:6px 10px;border-radius:20px;color:#ff8db5;background:#ff2d781a;border:1px solid #ff2d7840}
+.project{padding:0;overflow:hidden}.art{height:150px;display:grid;place-items:center;font-size:50px;background:linear-gradient(135deg,#16030d,#4b0926,#17030d)}.project div:last-child{padding:23px}.contact{text-align:center;padding:45px 20px;border:1px solid #ff3d864d;border-radius:20px;background:#32061bb3}.email{color:#ff6da4;font-size:18px}.contact a{text-decoration:none}footer{text-align:center;padding:28px;color:#756b72;border-top:1px solid #ff3d8626}
+@media(max-width:700px){.links{display:none}nav{padding:15px 5%}}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+<nav><div class="logo">🎮 Mwaniki</div><ul class="links"><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul><a class="btn" href="admin.html">✏️ Admin</a></nav>
+<section class="hero"><div><div class="badge">GAME DEVELOPER</div><div class="avatar">🎮</div><h1>I'm <span id="name">Mwaniki Gatimu</span></h1><div class="subtitle">🎮 Game Developer | 🐍 Python Learner</div><p id="bio">I'm a game developer who enjoys creating games, experimenting with programming and turning ideas into playable experiences. I'm currently learning Python and improving my game development skills step by step.</p><div class="actions"><a class="btn" href="#projects">🎮 See My Projects</a><a class="btn" href="#skills">⚡ My Skills</a></div></div></section>
+<section id="skills"><h2 class="title">🛠️ My Skills</h2><p class="muted">What I'm working on and learning right now.</p><div class="grid">
+<div class="card"><div class="icon">🎮</div><h3>Game Development</h3><p>My main focus. I enjoy creating games and experimenting with gameplay ideas.</p><span class="status">Growing</span></div>
+<div class="card"><div class="icon">🐍</div><h3>Python</h3><p>Currently learning Python and building my programming knowledge step by step.</p><span class="status">Learning</span></div>
+<div class="card"><div class="icon">🧠</div><h3>Programming</h3><p>Learning how code works and using it to build things.</p><span class="status">Developing</span></div>
+<div class="card"><div class="icon">💡</div><h3>Game Design</h3><p>Exploring mechanics, challenges, worlds and fun player experiences.</p><span class="status">Learning</span></div>
+</div></section>
+<section id="projects"><h2 class="title">🎮 My Projects</h2><p class="muted">Games I'm working on or planning to build.</p><div class="grid">
+<div class="card project"><div class="art">🕹️</div><div><h3>My First Game</h3><p>A game project I'm developing while improving my game-development skills.</p><span class="status">In Development</span></div></div>
+<div class="card project"><div class="art">🌌</div><div><h3>Future Game</h3><p>A bigger project I plan to build as my programming skills improve.</p><span class="status">Planning</span></div></div>
+<div class="card project"><div class="art">🚀</div><div><h3>More Coming Soon</h3><p>This section can grow as you create more games and projects.</p><span class="status">Coming Soon</span></div></div>
+</div></section>
+<section id="contact"><div class="contact"><h2 class="title">📧 Contact Me</h2><p class="muted">Want to talk about games or projects?</p><a class="email" href="mailto:mwanikigatim026@gmail.com">mwanikigatim026@gmail.com</a></div></section>
+<footer>© 2026 Mwaniki Gatimu • Keep coding. Keep creating. 🎮</footer>
+<script>
+const SUPABASE_URL="PASTE_YOUR_SUPABASE_URL_HERE";
+const SUPABASE_KEY="PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+let db=null;if(!SUPABASE_URL.startsWith("PASTE_"))db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+for(let i=0;i<65;i++){let p=document.createElement("i");p.className="particle";p.style.left=Math.random()*100+"vw";p.style.width=p.style.height=2+Math.random()*4+"px";p.style.animationDuration=5+Math.random()*10+"s";p.style.animationDelay=-Math.random()*12+"s";document.getElementById("particles").appendChild(p)}
+async function loadProfile(){if(!db)return;let{data,error}=await db.from("profiles").select("name,bio").limit(1).maybeSingle();if(!error&&data){name.textContent=data.name;bio.textContent=data.bio}}loadProfile();
+</script>
+</body></html>
